@@ -4,7 +4,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
-const CssExtPlugin = require('mini-css-extract-plugin');
 
 const isDev = process.env.NODE_env === 'development';
 
@@ -21,8 +20,9 @@ module.exports = {
     },
     output: {
         filename: 'bundle[contenthash].js',
-        path: path.resolve(__dirname, 'dist'),
-        // path: path.dirname("C:/openserver/domains/localhost/test"),  
+        // path: path.resolve(__dirname, 'dist'),
+        path: path.dirname("C:/OpenServer/domains/localhost/test"),
+        // assetModuleFilename: 'assets/images/[name][ext]'
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -34,20 +34,20 @@ module.exports = {
             inject: 'body'
         }),
         new CleanWebpackPlugin(),
-        new CssExtPlugin({
+        new MiniCssExtractPlugin({
             filename: 'bundle[contenthash].css',
         }),
     ],
     module: {
         rules: [{
-                test: /\.(scss|css)$/i,
+                test: /\.css$/i,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
                     options: {
-                        publicPath: "",
+                        // publicPath: "",
                         esModule: false
                     },
-                }, "css-loader", "sass-loader"],
+                }, "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,

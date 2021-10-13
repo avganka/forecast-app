@@ -1,12 +1,9 @@
 @import url("./variables.css");
-
 @import url("./vendor/normalize.css");
-
-@import url("./global/fonts.css");
+/* @import url("./global/fonts.css"); */
 @import url("./global/reboot.css");
 @import url("./global/typography.css");
 @import url("./global/utils.css");
-
 @import url("./blocks/icon.css");
 @import url("./blocks/sort-form.css");
 @import url("./blocks/input-wrapper.css");
